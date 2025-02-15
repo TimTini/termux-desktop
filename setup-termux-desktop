@@ -847,7 +847,9 @@ function questions_setup_manual() {
 	echo
 	echo "${Y}4. Skip${W}"
 	echo
-	select_an_option 4 1 browser_answer
+	# select_an_option 4 1 browser_answer
+	# Change the default option to 2 (chromium)
+	select_an_option 4 2 browser_answer
 	banner
 	echo "${R}[${C}-${R}]${G}${BOLD} Select IDE you want to install${W}"
 	echo
@@ -897,7 +899,9 @@ function questions_setup_manual() {
 	echo
 	echo "${Y}4. Skip${W}"
 	echo
-	select_an_option 4 1 wine_answer
+	# select_an_option 4 1 wine_answer
+	# Change the default option to 3 (wine hangover)
+	select_an_option 4 3 wine_answer
 	banner
 	confirmation_y_or_n "Do you want to Configure Hardware Acceleration" enable_hw_acc
 	echo "enable_hw_acc=\"$enable_hw_acc\"" >> "$config_file"
@@ -948,7 +952,9 @@ ${W}"
 	echo
 	echo "${Y}2. Both Termux:x11 and VNC${W}"
 	echo
-	select_an_option 2 1 gui_mode_num
+	# select_an_option 2 1 gui_mode_num
+	# Change the default option to 2 (both)
+	select_an_option 2 2 gui_mode_num
 
 	# set gui_mode and display_number value
 	if [[ "$gui_mode_num" == "1" ]]; then
@@ -1063,7 +1069,9 @@ function distro_hw_questions() {
             echo
             echo "${Y}4. Skip${W}"
             echo
-            select_an_option 4 1 pd_hw_answer_num
+            # select_an_option 4 1 pd_hw_answer_num
+			# Change the default option to 2 (zink_virgl)
+            select_an_option 4 2 pd_hw_answer_num
 
             case "$pd_hw_answer_num" in
                 1) pd_hw_answer="zink" ;;
@@ -1206,7 +1214,9 @@ function hw_questions() {
 	echo
 	echo "${Y}5. Freedreno KGSL (Unstable | Adreno GPU Only)${W}"
 	echo
-	select_an_option 5 1 termux_hw_answer_num
+	# select_an_option 5 1 termux_hw_answer_num
+	# Change the default option to 3 (VIRGL ANGLE (Vulkan))
+	select_an_option 5 3 termux_hw_answer_num
 	echo "termux_hw_answer_num=\"$termux_hw_answer_num\"" >> "$config_file"
 
 	# set gpu api name
